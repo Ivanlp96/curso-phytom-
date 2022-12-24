@@ -1,0 +1,333 @@
+
+
+---tp2 
+#Ejercicio N°1
+
+t = (1,2,3,4,5,6,7,8,9,10)
+for i in t:
+   if i >= 6 and i <= 9:
+     print(i)
+     
+#Ejercicio N°2
+
+a = [1,2,3,201,5,6,2,8,9,10]
+suma=0
+for num in a:
+  suma= suma + num
+print("La suma de todos los elementos de la lista es: ",suma)  
+
+#Ejercicio N°3
+
+libreta={}
+libreta['nombre'] = 'ivan'
+libreta['apellido'] = 'riquelme'
+libreta['telefono'] = 21291231
+libreta['correo'] = 'hasai@gmail.com'
+print(libreta['correo'])
+
+#Ejercicio N°4
+
+dicc_1 = {'mes_1': 15876,'mes_2':11555,'mes_3':12301,'mes_4': 10500}
+dicc_2 = {'mes_1': 15876,'mes_2':11555,'mes_3':12301,'mes_4': 10500,'mes_5':16345}
+dicc_1.update(dicc_2 )
+print(dicc_1)
+
+#Ejercicio N°5
+
+l = {'Rojo': 1.9 ,'Amarillo': {'min':1.7,'max':2},'Verde': 2.4,'Naranja':
+2.4,'Blanco': 3.4,'Azul': 34,'Arcoiris':50}
+l.pop('Arcoiris')
+l1 = {'Azul':3.4}
+l.update(l1)
+print(l['Amarillo']['max'])
+
+#Ejercicio N°6
+
+i= 100
+while (i<=110):
+   print(i)
+   i=i+1
+   
+#Ejercicio N°7
+
+lista = []
+i=0
+while(i<10):
+  print('ingrese un elemento para la lista: ')
+  rpt = int(input())
+  lista.append(rpt)
+  i = i+1 
+
+print(lista)
+
+#Ejercicio N°8
+
+lista=['1','2','3','4','5','6','7','8','9','10']
+i=0
+while(len(lista) > 0):
+  i=len(lista)-1
+  lista.pop(i)
+  print(lista)
+
+
+lista=['1','2','3','4','5','6','7','8','9','10']
+i=0
+while(len(lista) > 0):
+  lista.pop()
+  print(lista)
+  
+#Ejercicio N°9
+
+print('ingrese un valor menor a 10')
+rpt = int(input())
+if(rpt < 10):
+  while(rpt<=50):
+    print(rpt)
+    rpt=rpt+3
+else:
+  print('fuera de rango solicitado')    
+  
+#Ejercicio N°10
+
+i=0
+while(True):
+  i=i+1
+  print(i)
+  if(i>20):
+    break
+    
+---tp3
+
+#Ejercicio N°1
+
+lista=[]
+
+def carga_lista(lista):
+  while(len(lista) < 12):
+    print('ingrese un numero')
+    numero=int(input())
+    lista.append(numero)
+  return lista
+
+def order_lista(lista):
+  par=[]
+  impar=[]
+  for i in range(len(lista)):
+    if(lista[i]%2==0):
+      par.append(lista[i])
+    else:
+      impar.append(lista[i])
+  print(impar)
+  print(par)      
+
+def menu():
+  ops=1
+  while(ops!=0):
+    print('1_cargar lista')
+    print('2_mostrar lista')
+    print('3_ordenar listas y mostrar')
+    print('4_borrar lista')
+    print('0_salir')
+    ops=int(input())
+    if(ops==1):
+      carga_lista(lista)
+      print('\n')
+      menu()
+    elif(ops==2):
+      print(lista)
+      print('\n')
+      menu()  
+    elif(ops==3):
+      if(len(lista)!=0):
+        order_lista(lista)
+        print('\n')  
+      else:
+        print('lista vacia!')
+        menu()
+    elif(ops==4):
+      list.clear(lista)
+      print('lista borrada')
+      print('\n')
+      menu()
+    elif(ops==0):
+      print('fin del programa\n')
+      break
+    else:
+      print('opcion no valida!\n')
+      print('\n')
+      break        
+
+menu()
+
+#Ejercicio N°2
+
+verano = ['diciembre','enero','febrero','marzo']
+otoño = ['abril','mayo','junio']
+invierno = ['julio','agosto','septiembre']
+primavera = ['octubre','noviembre']
+
+def estaciones():
+  print('ingrese un mes del año en minusculas')
+  estacion=input()
+  if(estacion in verano):
+    print('Verano\n')
+  elif(estacion in otoño):
+    print('Otoño\n')
+  elif(estacion in invierno):
+    print('Invierno\n')
+  elif(estacion in primavera):
+    print('Primavera\n')
+  else:
+    print('mes no valido\n!') 
+
+
+def menu():
+  print('1_buscar estacion')
+  print('0_salir')
+  rpt = int(input())
+  if(rpt == 1):
+     estaciones()
+     menu()
+  else:
+     print('fin del programa\n')
+
+menu()     
+
+#Ejercicio N3
+
+semana=['lunes','martes','miercoles','jueves','viernes','sabado','domingo']
+gasto={}
+
+def cargar_key(semana):
+  for i in range(len(semana)):
+    gasto[semana[i]] = 0
+
+def gasto_semanal(gasto):
+    for i in range(len(semana)):
+      carga()
+     
+#cree esta funcion en el caso de que diera error para que el contador no se actualizara
+def carga():
+    print('ingrese el dia de la semana')
+    dia = input()
+    if(dia in semana):
+        print('ingrese el gasto del dia: ')
+        gas = int(input())
+        gasto.update({dia:gas})
+        print('gasto ingresado!\n')
+    else:
+        print('dia no valido!')   
+        carga()
+
+def menu():
+  print('1_cargar key\n')
+  print('2_cargar gastos\n')
+  print('3_resultado\n')
+  print('0_salir\n')
+  ops=int(input())
+  if(ops==1):
+    cargar_key(semana)
+    print('keys cargadas\n')
+    menu()
+  elif(ops==2):
+    gasto_semanal(gasto)
+    menu()
+  elif(ops==3):
+    print(gasto)  
+  elif(ops==0):
+      print('fin del programa!\n')  
+  else:
+    print('opcion no valida!\n')
+    menu()
+
+menu()
+
+#Ejercicio N°4
+
+import numpy as np
+
+def coordenadas():
+  print('ingrese la coordenada x1: \n')
+  x1 = int(input())
+  print('ingrese la coordenada y1: \n')
+  y1 = int(input())
+  print('ingrese la coordenada x2: \n')
+  x2 = int(input())
+  print('ingrese la coordenada y2: \n')
+  y2 = int(input())
+  distancia_puntos(x1,y1,x2,y2)
+
+
+
+
+def distancia_puntos(x1,y2,x2,y1):
+  d = np.sqrt((x2-x1)**2+(y2+y1)**2)
+  print('la distancia es :',d)
+
+coordenadas()  
+
+#Ejercicio N°5
+
+import numpy as np
+def cargar_matriz():
+  filas = int(input('ingresa el numero de filas:  '))
+  columnas = int(input('ingresa el numero de columnas:  '))
+  matriz = []
+  for i in range(filas):
+    matriz.append([])
+    for j in range(columnas):
+      valor = float(input("fila {}, columnas {} :".format(i+1,j+1)))
+      matriz[i].append(valor)
+  mostrar(matriz)    
+  matriz_determinante(matriz)    
+
+def matriz_determinante(matriz):
+    resultado = np.linalg.det(matriz)
+    if(resultado == 0):
+      print('la matriz es singular\n')
+    else:
+      print('la matriz es no singular\n')
+
+def mostrar(matriz):
+  print()
+  for fila in matriz:
+    print("[",end="")
+    for elemento in fila:
+      print("{:8.2f}".format(elemento),end=" ")
+    print("]")  
+
+cargar_matriz()
+
+#Ejercicio N°6
+
+
+def ingreso():
+  numero = input('ingrese un numero:  ')
+  try:
+    entero = int(numero)
+    factorial(entero)
+  except ValueError:
+	    print("no es un numero entero")
+
+  
+
+def factorial(numero):
+    if(numero<0):
+      print('factorial de numeros negativos no existen')
+    elif(numero==0):
+      return 1  
+    else:
+      num=numero
+      fac=1 
+      while(numero>1):
+        fac *=numero
+        numero -=1
+        
+    print("el factorial de : ",num, "  es  :",fac) 
+
+ingreso()
+
+
+
+     
+     
